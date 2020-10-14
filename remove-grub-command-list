@@ -1,0 +1,46 @@
+Abra CMD como Administrador
+e digite os seguintes comandos
+
+diskpart
+
+list disk
+
+sel disk 0 (selecione em qual local está seu S.O se caso for mais de um HD/SSD)
+
+list vol
+
+sel vol 2 (veja qual local tá o seu "Sistema" no formato FAT32)
+
+assign letter=J:
+
+exit
+
+cd /d J:
+
+dir
+
+cd EFI
+
+dir
+
+rmdir /S Manjaro (no meu caso o GRUB que possuo é da distro Manjaro)
+
+S
+
+dir (confira se o GRUB com S.O que selecionaste foi removido)
+
+exit
+
+agora precisamos remover a letra J que criamos então reabra o CMD como Administrador e faça os seguintes comandos
+
+diskpart
+
+list disk
+
+sel disk 0 (selecione em qual local está seu S.O se caso for mais de um HD/SSD)
+
+list vol
+
+sel vol 2 (veja qual local tá o seu "Sistema" no formato FAT32)
+
+remove letter=J
